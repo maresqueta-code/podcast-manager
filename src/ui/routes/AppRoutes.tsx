@@ -21,6 +21,10 @@ export function AppRoutes() {
         path={ROUTE_URLS.ERROR_PAGE}
         element={<ErrorPage title="Network error." />}
       />
+      <Route
+        path={ROUTE_URLS.NOT_FOUND_PAGE}
+        element={<ErrorPage title="Page not found." />}
+      />
     </Routes>
   );
 }

@@ -6,4 +6,5 @@ export const ROUTE_URLS = {
   EPISODE: '/episode/',
   EPISODE_PAGE: ':podcastId/episode/:episodeId',
   ERROR_PAGE: '/error',
+  NOT_FOUND_PAGE: '*',
 };
