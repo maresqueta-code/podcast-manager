@@ -1,22 +1,11 @@
-import { useGetPodcastList } from '../../application/hooks/useGetPodcastList';
-import { useGetSearchTerm } from '../../application/stores/filterStore';
+import { usePodcastList } from './hooks/usePodcastList';
 import { PodcastCount } from './PodcastCount';
 import PodcastFilterInput from './PodcastFilterInput';
 import { PodcastSummary } from './PodcastSummary';
 import { getLastImage } from './util';
 
 export function PodcastList() {
-  const searchTerm = useGetSearchTerm();
-  const { data: podcastList, isLoading } = useGetPodcastList();
-  const filteredPodcasts =
-    podcastList?.filter((podcast) => {
-      const term = searchTerm.toLowerCase();
-      return (
-        podcast?.['im:artist']?.label.toLowerCase().includes(term) ||
-        podcast?.['im:name']?.label.toLowerCase().includes(term) ||
-        podcast?.summary?.label.toLowerCase().includes(term)
-      );
-    }) || [];
+  const { filteredPodcasts, isLoading } = usePodcastList();
 
   return (
     <>

@@ -1,15 +1,11 @@
-import { useDebouncedCallback } from 'use-debounce';
-import useFilterStore from '../../application/stores/filterStore';
+import { usePodcastFilterInput } from './hooks/usePodcastFilterInput';
 
 export interface PodcastFilterInputProps {
   isLoading: boolean;
 }
 
 export default function PodcastFilterInput({ isLoading }: PodcastFilterInputProps) {
-  const setSearchTerm = useFilterStore((state) => state.setSearchTerm);
-  const debounced = useDebouncedCallback((value) => {
-    setSearchTerm(value);
-  }, 400);
+  const { debounced } = usePodcastFilterInput();
 
   return (
     <input
