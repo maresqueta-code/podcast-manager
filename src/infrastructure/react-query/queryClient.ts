@@ -1,6 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
 import { Query } from '@tanstack/react-query';
-import { REACT_QUERY } from './reactQueryConstants';
+import { LOCAL_STORAGE_KEY, REACT_QUERY } from './reactQueryConstants';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,12 +20,10 @@ const queryClient = new QueryClient({
 
 // Restore react-query cache from localStorage.
 const restoreCache = () => {
-  console.log('RESTORING CACHE FROM LOCAL STORAGE', new Date());
-  const cacheData = localStorage.getItem('react-query-cache');
+  const cacheData = localStorage.getItem(LOCAL_STORAGE_KEY);
 
   if (cacheData) {
     const parsedCache = JSON.parse(cacheData);
-
     (parsedCache as Array<Query>).forEach(({ queryKey, state }) => {
       queryClient
         .getQueryCache()
@@ -42,17 +40,15 @@ restoreCache();
 
 // Persist react-query cache to localStorage
 queryClient.getQueryCache().subscribe(({ type }) => {
-  if (type === 'updated') {
+  if (type === REACT_QUERY.UPDATED) {
     const cacheData = queryClient.getQueryCache().getAll();
-    console.log('STORING CACHE IN LOCALSTORAGE', new Date());
-
     // Serialize just the required states.
     const serializedCache = cacheData.map((query) => ({
       queryKey: query.queryKey,
       state: query.state,
     }));
     // Persist to localStorage.
-    localStorage.setItem('react-query-cache', JSON.stringify(serializedCache));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(serializedCache));
   }
 });
 
