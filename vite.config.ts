@@ -29,11 +29,11 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/test/setup.ts',
+    setupFiles: './src/__tests__/setup.ts',
     coverage: {
       all: false,
       enabled: true,
-      exclude: ['**/setup.ts', '**/utils.tsx'],
+      exclude: ['**/setup.ts', '**/msw-utils.tsx', '**/test-utils.tsx'],
     },
   },
 });

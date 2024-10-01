@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { PodcastList } from '../components/PodcastList';
 import { ErrorPage } from '../pages/ErrorPage';
 import { ROUTE_URLS } from './routeConstants';
 import { HomeLayout } from '../pages/HomeLayout';
+import { MainContent } from '../components/MainContent';
 
 export function AppRoutes() {
   return (
@@ -14,7 +14,7 @@ export function AppRoutes() {
       >
         <Route
           index
-          element={<PodcastList />}
+          element={<MainContent />}
         />
       </Route>
       <Route

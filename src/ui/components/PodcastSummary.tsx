@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { ROUTE_URLS } from '../routes/routeConstants';
 
 export interface PodcastSummaryProps {
+  podcastId: string;
   logo?: string;
   name?: string;
   artist?: string;
-  podcastId?: string;
 }
 
 export function PodcastSummary({ logo, name, artist, podcastId }: PodcastSummaryProps) {
@@ -16,7 +16,7 @@ export function PodcastSummary({ logo, name, artist, podcastId }: PodcastSummary
           <figure>
             <img
               src={logo || ''}
-              alt="Podcast logo"
+              alt={`${name} logo`}
               className="relative z-10 size-36 rounded-full object-cover"
             />
           </figure>
