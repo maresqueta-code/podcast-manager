@@ -1,15 +1,14 @@
 import { describe, expect, test } from 'vitest';
 import { server } from '../../setup';
 import { rest } from 'msw';
-import { renderHook, waitFor } from '@testing-library/react';
-import { createWrapper } from '../../utils/utils';
+import { waitFor } from '@testing-library/react';
 import { useGetPodcastList } from '../../../application/hooks/useGetPodcastList';
+import { renderHookWithClient } from '../../utils/test-utils';
 
 describe('useGetPodcastList custom hook tests', () => {
   test('Successful query', async () => {
-    const { result } = renderHook(() => useGetPodcastList(), {
-      wrapper: createWrapper(),
-    });
+    const { result } = renderHookWithClient(() => useGetPodcastList());
+
     await waitFor(() => expect(result.current.data).not.toBeNull);
     expect(result.current.isError).toBe(false);
   });
@@ -20,9 +19,8 @@ describe('useGetPodcastList custom hook tests', () => {
         return res(ctx.status(500));
       }),
     );
-    const { result } = renderHook(() => useGetPodcastList(), {
-      wrapper: createWrapper(),
-    });
+    const { result } = renderHookWithClient(() => useGetPodcastList());
+
     await waitFor(() => expect(result.current.error).not.toBeNull);
   });
 });

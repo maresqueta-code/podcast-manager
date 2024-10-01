@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
 import { setupServer } from 'msw/node';
-import { handlers } from './utils/utils';
-// import 'globals';
+import { handlers } from './utils/msw-utils';
+import 'globals';
 
 // For the time being, had to downgrade the code to work with previous version of msw due to
 //  this issue https://github.com/mswjs/msw/issues/2106
