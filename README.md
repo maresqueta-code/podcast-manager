@@ -14,9 +14,9 @@
 
 ## Description
 
-### Homepage View
+### Project
 
-The Podcast Manager App (MVP) is a working app that follows the technical assessment specification and UI design provided applying some of the Clean Architecture principles.
+The Podcast Manager App (MVP) is a working app that follows the and UI design provided in the pdf file with the [Technical Assessment](prueba-tecnica-front-end-marketplaces.pdf) applying some of the Clean Architecture principles.
 
 ### Compatibility
 
