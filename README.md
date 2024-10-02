@@ -1,4 +1,4 @@
-## Podcast Manager App
+## Podcast Manager App v1.0.0
 
 ### Author: Marcos Luis Aresqueta
 
