@@ -6,8 +6,6 @@ export interface PodcastListProps {
   podcasts: Podcast[];
 }
 export function PodcastList({ podcasts }: PodcastListProps) {
-  console.log('podcasts', podcasts);
-
   return (
     <ul className="mx-4 mt-10 flex flex-wrap justify-center gap-x-6 gap-y-28">
       {podcasts?.map((p) => {

@@ -1,5 +1,4 @@
 import { screen, within } from '@testing-library/react';
-// import SearchPage from './SearchPage';
 import { renderWithRouter } from '../../utils/test-utils';
 import { PodcastList } from '../../../ui/components/PodcastList';
 import { MOCKED_PODCASTS } from '../../../__mocks__/podcasts';
