@@ -1,4 +1,4 @@
-import { useMainContent } from './hooks/useMainContent';
+import { useMainContent } from '../../application/hooks/useMainContent';
 import { PodcastCount } from './PodcastCount';
 import PodcastFilterInput from './PodcastFilterInput';
 import { PodcastList } from './PodcastList';

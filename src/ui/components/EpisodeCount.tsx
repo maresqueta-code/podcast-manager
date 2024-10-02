@@ -1,4 +1,4 @@
-import { useEpisodeCount } from './hooks/useEpisodeCount';
+import { useEpisodeCount } from '../../application/hooks/useEpisodeCount';
 
 export function EpisodeCount() {
   const { isLoading, episodeCount } = useEpisodeCount();

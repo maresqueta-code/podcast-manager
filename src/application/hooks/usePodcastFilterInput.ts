@@ -1,6 +1,6 @@
 import { useDebouncedCallback } from 'use-debounce';
-import type { Filters } from '../../../application/stores/filterStore';
-import useFilterStore from '../../../application/stores/filterStore';
+import type { Filters } from '../stores/filterStore';
+import useFilterStore from '../stores/filterStore';
 
 export const usePodcastFilterInput = () => {
   const setSearchTerm = useFilterStore((state: Filters) => state.setSearchTerm);

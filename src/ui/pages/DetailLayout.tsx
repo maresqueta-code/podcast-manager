@@ -6,12 +6,13 @@ import { ErrorPage } from './ErrorPage';
 import { useGetPodcastList } from '../../application/hooks/useGetPodcastList';
 import { useGetPodcast } from '../../application/hooks/useGetPodcast';
 import { Loading } from '../components/Loading';
+import { ERROR_MESSAGES } from '../routes/routeConstants';
 
 export function DetailLayout() {
   const { podcastId } = useParams();
   const { isError } = useGetPodcastList();
   const { isError: isEpisodeError } = useGetPodcast(podcastId || '');
-  if (isError || isEpisodeError) return <ErrorPage title="Service unavailable. Try later." />;
+  if (isError || isEpisodeError) return <ErrorPage title={ERROR_MESSAGES.SERVICE_UNAVAILABLE} />;
 
   return (
     <>

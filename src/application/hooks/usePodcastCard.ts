@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { useGetPodcastList } from '../../../application/hooks/useGetPodcastList';
-import { getLastImage } from '../util';
+import { useGetPodcastList } from './useGetPodcastList';
+import { getLastImage } from '../../ui/components/util';
 
 export const usePodcastCard = () => {
   const { podcastId } = useParams();

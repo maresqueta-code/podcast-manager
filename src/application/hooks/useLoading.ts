@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { useGetPodcast } from '../../../application/hooks/useGetPodcast';
-import { useGetPodcastList } from '../../../application/hooks/useGetPodcastList';
+import { useGetPodcast } from './useGetPodcast';
+import { useGetPodcastList } from './useGetPodcastList';
 
 export const useLoading = () => {
   const { podcastId } = useParams();

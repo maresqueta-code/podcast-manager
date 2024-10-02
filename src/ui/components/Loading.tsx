@@ -1,4 +1,4 @@
-import { useLoading } from './hooks/useLoading';
+import { useLoading } from '../../application/hooks/useLoading';
 
 export function Loading() {
   const { isLoading } = useLoading();

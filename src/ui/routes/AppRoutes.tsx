@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import { ErrorPage } from '../pages/ErrorPage';
-import { ROUTE_URLS } from './routeConstants';
-import { HomeLayout } from '../pages/HomeLayout';
-import { MainContent } from '../components/MainContent';
+import { DetailLayout } from '../pages/DetailLayout';
 import { EpisodeCount } from '../components/EpisodeCount';
 import { EpisodeTable } from '../components/EpisodeTable';
-import { DetailLayout } from '../pages/DetailLayout';
+import { HomeLayout } from '../pages/HomeLayout';
+import { EpisodeDetail } from '../components/EpisodeDetail';
+import { ErrorPage } from '../pages/ErrorPage';
+import { ERROR_MESSAGES, ROUTE_URLS } from './routeConstants';
+import { MainContent } from '../components/MainContent';
 
 export function AppRoutes() {
   return (
@@ -24,6 +25,14 @@ export function AppRoutes() {
             </>
           }
         />
+        <Route
+          path={ROUTE_URLS.EPISODE_PAGE}
+          element={
+            <>
+              <EpisodeDetail />
+            </>
+          }
+        />
       </Route>
       {/* Home layout without Aside, only Header, and a full width main section */}
       <Route
@@ -37,11 +46,11 @@ export function AppRoutes() {
       </Route>
       <Route
         path={ROUTE_URLS.ERROR_PAGE}
-        element={<ErrorPage title="Network error." />}
+        element={<ErrorPage />}
       />
       <Route
         path={ROUTE_URLS.NOT_FOUND_PAGE}
-        element={<ErrorPage title="Page not found." />}
+        element={<ErrorPage title={ERROR_MESSAGES.NOT_FOUND} />}
       />
     </Routes>
   );
