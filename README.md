@@ -2,7 +2,7 @@
 
 ### Author: Marcos Luis Aresqueta
 
-git@github.com:maresqueta-code/podcast-manager.git
+`git@github.com:maresqueta-code/podcast-manager.git`
 
 ## Table of Contents
 
@@ -81,9 +81,11 @@ To provide the fully functional REST API.
 
 Since there's no API key in .env files, they were commited to the project to make easier to run it from scratch.
 
-### 1.a) Clone the repository from GitHub git@github.com:maresqueta-code/podcast-manager.git :
+### 1.a) Clone the repository from GitHub `git@github.com:maresqueta-code/podcast-manager.git`:
 
+```bash
 git clone https://github.com/maresqueta-code/podcast-manager.git
+```
 
 ### 1.b) Otherwise go to https://github.com/maresqueta-code/podcast-manager , download and unzip it.
 
