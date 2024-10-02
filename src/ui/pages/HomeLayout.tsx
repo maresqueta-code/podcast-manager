@@ -3,10 +3,11 @@ import { Outlet } from 'react-router-dom';
 import { ErrorPage } from './ErrorPage';
 import { useGetPodcastList } from '../../application/hooks/useGetPodcastList';
 import { Loading } from '../components/Loading';
+import { ERROR_MESSAGES } from '../routes/routeConstants';
 
 export function HomeLayout() {
   const { isError } = useGetPodcastList();
-  if (isError) return <ErrorPage title="Service unavailable. Try later." />;
+  if (isError) return <ErrorPage title={ERROR_MESSAGES.SERVICE_UNAVAILABLE} />;
 
   return (
     <>
