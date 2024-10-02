@@ -1,6 +1,4 @@
-import type { Podcast } from '../infrastructure/api/podcastList.types';
-
-export const MOCKED_PODCASTS: Podcast[] = [
+export const MOCKED_PODCASTS = [
   {
     'im:name': {
       label: 'The Joe Budden Podcast',
