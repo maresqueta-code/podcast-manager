@@ -9,7 +9,7 @@ vi.mock('../../../application/hooks/useGetPodcast', () => ({
   useGetPodcast: vi.fn(),
 }));
 
-const mockUseGetPodcastList = useGetPodcast as jest.Mock;
+const mockUseGetPodcast = useGetPodcast as jest.Mock;
 
 describe('EpisodeCount tests', () => {
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('EpisodeCount tests', () => {
   });
 
   it('should render the episodes count', () => {
-    mockUseGetPodcastList.mockReturnValue({
+    mockUseGetPodcast.mockReturnValue({
       data: MOCKED_EPISODES,
       isLoading: false,
     });
@@ -28,7 +28,7 @@ describe('EpisodeCount tests', () => {
   });
 
   it('should render zero episodes when list is empty', () => {
-    mockUseGetPodcastList.mockReturnValue({
+    mockUseGetPodcast.mockReturnValue({
       data: [],
       isLoading: false,
     });
@@ -39,7 +39,7 @@ describe('EpisodeCount tests', () => {
   });
 
   it('should not render a count during loading state', () => {
-    mockUseGetPodcastList.mockReturnValue({
+    mockUseGetPodcast.mockReturnValue({
       data: undefined,
       isLoading: true,
     });

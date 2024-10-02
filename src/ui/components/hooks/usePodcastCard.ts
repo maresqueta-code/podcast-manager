@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useGetPodcastList } from '../../../application/hooks/useGetPodcastList';
 import { getLastImage } from '../util';
 
-export const usePostcardCard = () => {
+export const usePodcastCard = () => {
   const { podcastId } = useParams();
   const { data: podcastList } = useGetPodcastList();
   const selectedPodcast = podcastList?.find(

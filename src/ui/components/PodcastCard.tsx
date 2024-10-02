@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ROUTE_URLS } from '../routes/routeConstants';
-import { usePostcardCard } from './hooks/usePostcardCard';
+import { usePodcastCard } from './hooks/usePodcastCard';
 
 export function PodcastCard() {
-  const { podcastId, name, artist, summary, imageUri } = usePostcardCard();
+  const { podcastId, name, artist, summary, imageUri } = usePodcastCard();
   return (
     <aside className="rounded-sm border bg-white p-6 text-left text-sm shadow-xl transition-transform ease-in hover:scale-105 active:shadow-none">
       <Link to={`${ROUTE_URLS.PODCAST}${podcastId}`}>
