@@ -1,4 +1,4 @@
-import { usePodcastFilterInput } from './hooks/usePodcastFilterInput';
+import { usePodcastFilterInput } from '../../application/hooks/usePodcastFilterInput';
 
 export interface PodcastFilterInputProps {
   isLoading: boolean;

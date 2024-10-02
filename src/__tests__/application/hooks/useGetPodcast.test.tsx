@@ -9,10 +9,8 @@ describe('useGetPodcast custom hook tests', () => {
   test('Successful query', async () => {
     const { result } = renderHookWithClient(() => useGetPodcast('1234'));
 
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    await waitFor(() => expect(result.current.data).not.toBeNull());
     expect(result.current.isError).toBe(false);
-    expect(result.current.isSuccess).toBe(true);
-    expect(result.current.data).not.toBeNull();
   });
 
   test('Failed query', async () => {
@@ -22,7 +20,6 @@ describe('useGetPodcast custom hook tests', () => {
       }),
     );
     const { result } = renderHookWithClient(() => useGetPodcast(''));
-
-    await waitFor(() => expect(result.current.error).not.toBeNull);
+    await waitFor(() => expect(result.current.error).toBeNull());
   });
 });

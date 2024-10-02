@@ -6,22 +6,20 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   build: {
-    // ensure proper minification
-    minify: 'esbuild',
-    // sourcemap = true provides easier debugging since provides insight into the original codebase;
-    // BUT it increases the build size and could be a potential security risk.
-    // It's up to the team but a secure approach would be to set it to false for Production builds but true for development.
-    sourcemap: false,
-    cssCodeSplit: true,
+    cssCodeSplit: true, // Enable CSS minification
+    minify: 'esbuild', // Default, but you can specify it
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString();
-          }
-        },
+        // Improve long-term caching
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
       },
     },
+
+    target: ['es2015'], // Reduce size by targeting modern browsers if possible
+    // Enable source maps in production (can be helpful, but remove for production if not needed)
+    sourcemap: false,
   },
   css: {
     postcss: './postcss.config.js',
