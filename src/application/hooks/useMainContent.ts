@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { useGetPodcastList } from '../../../application/hooks/useGetPodcastList';
-import { useGetSearchTerm } from '../../../application/stores/filterStore';
-import type { Podcast } from '../../../infrastructure/api/podcastList.types';
+import { useGetPodcastList } from './useGetPodcastList';
+import { useGetSearchTerm } from '../stores/filterStore';
+import type { Podcast } from '../../infrastructure/api/podcastList.types';
 
 export const useMainContent = () => {
   const searchTerm = useGetSearchTerm();

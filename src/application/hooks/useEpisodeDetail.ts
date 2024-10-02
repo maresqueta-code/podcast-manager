@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useGetPodcast } from '../../../application/hooks/useGetPodcast';
+import { useGetPodcast } from './useGetPodcast';
 import DOMPurify from 'dompurify';
 import parse from 'html-react-parser';
 

@@ -1,4 +1,4 @@
-import { useEpisodeDetail } from './hooks/useEpisodeDetail';
+import { useEpisodeDetail } from '../../application/hooks/useEpisodeDetail';
 
 export function EpisodeDetail() {
   const { isLoading, title, episodeUrl, parsedHtml } = useEpisodeDetail();
@@ -12,6 +12,7 @@ export function EpisodeDetail() {
           controls
           src={episodeUrl}
           className="w-full"
+          data-testid="audio-element"
         />
       </div>
     </article>

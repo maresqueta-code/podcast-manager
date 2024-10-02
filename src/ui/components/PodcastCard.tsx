@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ROUTE_URLS } from '../routes/routeConstants';
-import { usePodcastCard } from './hooks/usePodcastCard';
+import { usePodcastCard } from '../../application/hooks/usePodcastCard';
 
 export function PodcastCard() {
   const { podcastId, name, artist, summary, imageUri } = usePodcastCard();

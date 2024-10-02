@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import { ROUTE_URLS } from '../routes/routeConstants';
-import { useEpisodeTable } from './hooks/useEpisodeTable';
+import { useEpisodeTable } from '../../application/hooks/useEpisodeTable';
 
 export function EpisodeTable() {
   const { podcastId, episodeList } = useEpisodeTable();

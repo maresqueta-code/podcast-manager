@@ -2,9 +2,9 @@ import { screen } from '@testing-library/react';
 import { renderWithRoutedClient } from '../../utils/test-utils';
 import { vi } from 'vitest';
 import { PodcastCard } from '../../../ui/components/PodcastCard';
-import { usePodcastCard } from '../../../ui/components/hooks/usePodcastCard';
+import { usePodcastCard } from '../../../application/hooks/usePodcastCard';
 
-vi.mock('../../../ui/components/hooks/usePodcastCard', () => ({
+vi.mock('../../../application/hooks/usePodcastCard', () => ({
   usePodcastCard: vi.fn(),
 }));
 
