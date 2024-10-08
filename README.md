@@ -1,8 +1,13 @@
-## Podcast Manager App v1.0.0
+## Podcast Manager App v1.0.2
 
 ### Author: Marcos Luis Aresqueta
 
 `git@github.com:maresqueta-code/podcast-manager.git`
+
+## Languages
+
+- [English version](README.md)
+- [Spanish version](README.es.md)
 
 ## Table of Contents
 
@@ -16,11 +21,11 @@
 
 ### Project
 
-The Podcast Manager App (MVP) is a working app that follows the and UI design provided in the pdf file with the [Technical Assessment](prueba-tecnica-front-end-marketplaces.pdf) applying some of the Clean Architecture principles.
+The Podcast Manager App (MVP) is a working app that follows the specification and UI design provided in the pdf file with the [Technical Assessment](prueba-tecnica-front-end-marketplaces.pdf) applying some of the Clean Architecture principles.
 
 ### Compatibility
 
-Although the project was tested using `node version >= 20` and `yarn` , it should work with `npm`, `pnpm`, or other package managers as well. Just replace `yarn` by the manager of your choice when running the scripts.
+Although the project was tested using `node version >= 20` and `yarn`, it should work with `npm`, `pnpm`, or other package managers as well. Just replace `yarn` by the manager of your choice when running the scripts.
 
 ### Future improvements
 
@@ -35,15 +40,16 @@ It offers significant enhancements in performance, user experience, and develope
 
 #### @tanstack/react-query 5
 
-The App was integrated to `react-query` in an effort to improve the performance and the interaction between the App and the REST API, not only to manage the CRUD operations but also the pagination, navigation between pages, and so on. It leverages a powerful set of tools for managing server state, improving data fetching efficiency, and enhancing the overall user experience. `react-query` provides features like automatic caching, background synchronization, and robust error handling.
+The App was integrated to `react-query` in an effort to improve the performance and the interaction between the App and the REST API, and so on. It leverages a powerful set of tools for managing server state, improving data fetching efficiency, and enhancing the overall user experience. `react-query` provides features like automatic caching, background synchronization, and robust error handling.
+When defining the `queryClient` the necessary setup is provided to leverage a 24 hours cache for each request with a different key and thus considerably improve the performance of the application.
 
 #### zustand
 
-It was used to manage all the states related to the trips filtering. `zustand` is a library based on hooks that provides a minimal and straightforward API for state management with no boilerplate. It offers flexibility since it can be used alongside other state management solutions or on its own, offering in managing application state. It provides efficient state updates with minimal re-renders which improves app performance. It scales well with application size, allowing you to manage global, shared, and local states effortlessly.
+It was used to manage the states to provide the filtering feature. `zustand` is a library based on hooks that provides a minimal and straightforward API for state management with no boilerplate. It offers flexibility since it can be used alongside other state management solutions or on its own, offering in managing application state. It provides efficient state updates with minimal re-renders which improves app performance. It scales well with application size, allowing you to manage global, shared, and local states effortlessly.
 
 #### react-router-dom 6
 
-This library enhances the routing capabilities of React apps by offering a declarative, flexible, and robust routing solution. Its features like dynamic and nested routing, URL parameter handling, and seamless integration with React hooks make it a powerful tool for managing navigation in Single Page Apps like this app.
+This library adds and enhances the routing capabilities of React apps by offering a declarative, flexible, and robust routing solution. Its features like dynamic and nested routing, URL parameter handling, and seamless integration with React hooks make it a powerful tool for managing navigation in Single Page Apps like this app.
 
 #### msw
 
@@ -55,7 +61,7 @@ The core build tool.
 
 #### Tailwind 3.4
 
-A utility-first CSS framework that provides low-level, reusable utility classes to build custom designs without leaving HTML. It allows to apply styles directly in the markup by using predefined classes for layout, spacing, typography, colors, and so on.
+A utility-first CSS framework that provides low-level, reusable utility classes to build custom designs without leaving HTML, JSX or TSX. It allows to apply styles directly in the markup by using predefined classes for layout, spacing, typography, colors, and so on.
 
 #### PostCSS
 
@@ -73,13 +79,14 @@ A `PostCSS` plugin to add browser vendor prefixes.
 
 To improve the Javascript codebase with types, and so on.
 
-### json-server
+### Browser Local Storage
 
-To provide the fully functional REST API.
+The `react-query`state cache is persisted in the browser `localstorage` so it's keeped after closing the browser and reloaded when opening it again. This local storage is overriden when `react-query` cached queries gets invalidated (after 24 hs) and fresh data is gotten.
+To manually delete the cache persisted in `localstorage` go to `devtools` -> `Application` tab -> `Storage` section and manually delete the key-value pair (`podcasts-cache`) for `Local storage` in the App domain.
 
 ## Local Deployment
 
-Since there's no API key in .env files, they were commited to the project to make easier to run it from scratch.
+Since there's no API key in .env files, they were commited to the project to make easier to run it without adding any setup.
 
 ### 1.a) Clone the repository from GitHub `git@github.com:maresqueta-code/podcast-manager.git`:
 
@@ -97,7 +104,7 @@ cd podcast-manager
 
 ### 3. Install the project dependencies
 
-From now on, the scripts are provided in package.json to continue. To install the libs and their dependencies run:
+From now on, the scripts are provided in `package.json` to continue. To install the libs and their dependencies run:
 
 ```bash
 yarn install
@@ -141,7 +148,8 @@ The tests developed to add coverage to the App use:
 
 - Vitest, a testing framework that integrates well with Vite;
 - React Testing Library, a light-weight API to test React functional components.
-- To execute the tests just once and get the coverage report in terminal, open a new terminal and run:
+
+To execute the tests just once and get the coverage report in terminal, open a new terminal and run:
 
 ```bash
 yarn test
@@ -205,7 +213,7 @@ yarn run test:watch
 
 ### 3. Tests in Vitest UI
 
-To execute the tests in watch mode, and start the local server with Vitest UI to manage the tests, get the coverage details, see stack error output like in the one show in the terminal when there are errors, and even the code, run:
+To execute the tests in watch mode, and start the local server with Vitest UI to manage the tests, get the coverage details, see stack error output as it is shown in the terminal, and even to have the source code available, run:
 
 ```bash
 yarn test:ui
@@ -221,7 +229,7 @@ yarn run test:ui
 
 ### 1. ESLint
 
-To run ESLint in the current path and lint the `.ts` and `.tsx`files, report any eslint-disable that are not disabling any ESLint rules, and fail the linting process if there are any warnings, execute:
+To run ESLint in the current path and lint the `.ts` and `.tsx`files and fail the linting process if there are any warnings, execute:
 
 ```bash
 yarn lint
@@ -235,7 +243,7 @@ yarn run lint
 
 ### 2. Prettier
 
-The following script formats all supported files in your project according to Prettier's rules.
+The following script formats all supported files in your project according to Prettier's rules:
 
 ```bash
 yarn format
